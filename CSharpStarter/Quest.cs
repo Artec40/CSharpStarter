@@ -62,15 +62,15 @@ namespace CSharpStarter
         /// 
         public void SetAnswer()
         {
-        Label:
             this.Answer = Console.ReadLine();
-            if (this.Answer == this.TrueAnswer)
-            { rating++; }
-            else if (this.Answer == this.FalseAnswer) { }
-            else
+            while ((this.Answer != this.TrueAnswer) && (this.Answer != this.FalseAnswer))
             {
-                Console.WriteLine("Wrong Command, pleasy try again");
-                goto Label;
+                Console.WriteLine("Wrong Command, please try again");
+                this.Answer = Console.ReadLine();
+            }
+            if (this.Answer == this.TrueAnswer)
+            {
+                rating++;
             }
         }
         /// <summary>
